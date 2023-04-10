@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
 body {
   font-family: "Montserrat", sans-serif;
-
   padding: 1rem;
 }
 /*Modal*/
@@ -14,6 +13,12 @@ span.btn-close {
 i.fa-solid.fa-circle-xmark {
   font-size: 2rem;
 }
+.img-friend {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
 .upload-wp {
   text-align: center;
   padding: 3%;
@@ -68,9 +73,4 @@ span#basic-addon2 {
 }
 input::placeholder {
   text-align: center;
-}
-.img-friend {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
 }
