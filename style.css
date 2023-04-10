@@ -18,10 +18,15 @@ i.fa-solid.fa-circle-xmark {
   height: 45px;
   border-radius: 50%;
 }
-
+.img-box {
+  display: grid;
+  place-items: center;
+}
 .upload-wp {
   text-align: center;
   padding: 3%;
+  width: 100%;
+  min-width: 150px;
 }
 img.avatar-img {
   width: 100px;
