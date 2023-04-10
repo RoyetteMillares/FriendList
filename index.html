@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css"
+      integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>CRUD App</title>
+  </head>
+  <body>
+    <header class="">
+      <div class="container-wp">
+        <div class="d-flex justify-content-between">
+          <h2>Add New Friend</h2>
+          <button class="btn btn-primary" id="addBtn">
+            <i class="fa-solid fa-user-plus"></i> Add Friend
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="container-wp mt-2">
+      <div class="d-flex">
+        <div class="w-25 mr-2">
+          <div class="form-group mb-2 border p-2 rounded">
+            <label for="state-filter">Filter by State:</label><br />
+            <div id="state-filter" class="d-flex flex-column mr-3">
+              <!-- Dynamically generated checkboxes for states will be appended here -->
+            </div>
+          </div>
+          <div class="form-group border p-2 rounded">
+            <label for="state-filter">Filter by Company:</label><br />
+            <div id="company-filter" class="d-flex flex-column mr-3">
+              <!-- Dynamically generated checkboxes for companies will be appended here -->
+            </div>
+          </div>
+        </div>
+
+        <div class="w-100">
+          <div
+            class="d-flex justify-content-between align-items-center mb-3 border p-2 rounded"
+          >
+            <div class="input-group w-25">
+              <input
+                id="searchInput"
+                type="text"
+                class="form-control"
+                placeholder="Search friend"
+                aria-label="Search friend"
+                aria-describedby="basic-addon2"
+              />
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2"
+                  ><i class="fa-solid fa-magnifying-glass"></i
+                ></span>
+              </div>
+            </div>
+
+            <select
+              class="custom-select w-25"
+              id="sortSelect"
+              onchange="sortData()"
+            ></select>
+          </div>
+          <table class="table table-striped border-top-0 border rounded">
+            <thead>
+              <tr>
+                <th scope="col">Profile</th>
+                <th scope="col">Name</th>
+                <th scope="col">State</th>
+                <th scope="col">Company</th>
+                <th scope="col">Job</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="table-data"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="add-friend-modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <h5
+            class="modal-title text-center pt-2"
+            id="add-friend-modal-label"
+          ></h5>
+          <div class="modal-header justify-content-center">
+            <div class="img-box">
+              <img class="avatar-img" src="img/avatar.png" alt="avatar" />
+              <div class="upload-wp">
+                <label for="inputTag">
+                  Select Image <br />
+                  <i class="fa fa-2x fa-camera"></i>
+                  <input id="inputTag" type="file" />
+                  <br />
+                  <span id="imageName"></span>
+                </label>
+              </div>
+            </div>
+
+            <span class="btn-close" onclick="hideModal()">
+              <i class="fa-solid fa-circle-xmark"></i>
+            </span>
+          </div>
+          <div class="modal-body">
+            <form id="register-form">
+              <div class="mb-3">
+                <label for="name-input" class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name-input"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="state-input" class="form-label">State</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="state-input"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="company-input" class="form-label">Company</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="company-input"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="job-input" class="form-label">Job</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="job-input"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="contact-input" class="form-label">Contact</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="contact-input"
+                  pattern="[0-9]+"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              disabled="disabled"
+              type="button"
+              class="btn btn-secondary"
+              id="update-btn"
+            >
+              Update
+            </button>
+            <button type="button" class="btn btn-primary" id="addFriend-btn">
+              Add Friend
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+      integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js"
+      integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>
