@@ -39,8 +39,25 @@ img.avatar-img {
 .upload-wp label {
   cursor: pointer;
 }
+
 #imageName {
   color: green;
+}
+button#addBtn {
+  border-radius: 20px;
+}
+button#update-btn {
+  border-radius: 20px;
+}
+button#addFriend-btn {
+  border-radius: 20px;
+}
+button.swal-button.swal-button--confirm {
+  border-radius: 20px;
+}
+button.swal-button.swal-button--cancel {
+  border-radius: 20px;
+  background-color: transparent;
 }
 .container-wp {
   max-width: 1400px;
@@ -64,7 +81,7 @@ table {
 input#searchInput {
   background: #f6f6f6;
   border: none;
-  border-radius: 12px;
+  border-radius: 20px;
 }
 span#basic-addon2 {
   background: transparent;
@@ -78,7 +95,7 @@ span#basic-addon2 {
     right 0.75rem center/8px 10px no-repeat;
   background-color: #f6f6f6;
   border: none;
-  border-radius: 12px;
+  border-radius: 20px;
 }
 input::placeholder {
   text-align: center;
