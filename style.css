@@ -26,11 +26,12 @@ i.fa-solid.fa-circle-xmark {
   text-align: center;
   padding: 3%;
   width: 100%;
+
   min-width: 150px;
 }
 img.avatar-img {
-  width: 100px;
-  height: auto;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
 }
 .upload-wp input {
