@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
 body {
-  font-family: "Montserrat", sans-serif;
-  padding: 1rem;
+    font-family: "Montserrat", sans-serif;
+    padding: 1rem;
+    height: 100vh;
+    width: 100vw;
+    background: #F3F5F7;
 }
 /*Modal*/
 span.btn-close {
@@ -45,19 +48,19 @@ img.avatar-img {
   color: green;
 }
 button#addBtn {
-  border-radius: 20px;
+  border-radius: 12px;
 }
 button#update-btn {
-  border-radius: 20px;
+  border-radius: 12px;
 }
 button#addFriend-btn {
-  border-radius: 20px;
+  border-radius: 12px;
 }
 button.swal-button.swal-button--confirm {
-  border-radius: 20px;
+  border-radius: 12px;
 }
 button.swal-button.swal-button--cancel {
-  border-radius: 20px;
+  border-radius: 12px;
   background-color: transparent;
 }
 .container-wp {
@@ -67,9 +70,16 @@ button.swal-button.swal-button--cancel {
 table {
   border-collapse: separate;
   border-spacing: 0;
+     border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+.table td, .table th {
+  vertical-align: middle;
 }
 .table thead th {
-  border-bottom: 0px;
+    border: 0px;
 }
 .swal-button {
   padding: 7px 19px;
@@ -80,9 +90,9 @@ table {
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
 }
 input#searchInput {
-  background: #f6f6f6;
+  background: #ffff;
   border: none;
-  border-radius: 20px;
+  border-radius: 12px;
 }
 span#basic-addon2 {
   background: transparent;
@@ -94,10 +104,18 @@ span#basic-addon2 {
 .custom-select {
   background: #fff url(https://img.icons8.com/ios-glyphs/256/chevron-down.png)
     right 0.75rem center/8px 10px no-repeat;
-  background-color: #f6f6f6;
+  background-color: #fff;
   border: none;
-  border-radius: 20px;
+  border-radius: 12px;
 }
 input::placeholder {
   text-align: center;
+}
+.form-group {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
